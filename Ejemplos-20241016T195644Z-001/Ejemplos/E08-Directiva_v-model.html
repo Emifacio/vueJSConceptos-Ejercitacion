@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - v-model</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <script>
+        // Crea un enlace bidireccional en un
+        // elemento de formulario o componente.
+        // Limitado a: input, select, textarea
+        // y componentes.
+    </script>
+
+    <h1>Vue - Directiva v-model</h1>
+    <div id="aplicacion">
+        <p>La directiva <mark>v-model</mark> establece un enlace bidireccional, es decir, vincula el valor de los
+            elementos HTML a los datos de la aplicación.</p>
+        <p>Crea un enlace bidireccional en un elemento de formulario o componente. Limitado a: input, select, textarea y
+            componentes.</p>
+
+        <h3>Modifica el estilo de la fuente:</h3>
+        <p>Tamaño de la fuente:
+            <input type="range" name="fontSize" min=10 max=40 v-model="fontSize">( {{fontSize}} px)
+        </p>
+        <p>Color:
+            <input type="color" v-model="colorTxt">
+        </p>
+
+        <p v-bind:style="{'font-size':fontSize +'px', 'color': colorTxt}">Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Harum, veniam.</p>
+    </div>
+
+
+    <!-- Referencia al CDN de Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29"></script>
+
+    <!-- Y aqui colocamos nuestro script ------------------------------>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    fontSize: 20,
+                    colorTxt: '#000000'
+                }
+            }
+        });
+
+        app.mount('#aplicacion');
+    </script>
+</body>
+
+</html>

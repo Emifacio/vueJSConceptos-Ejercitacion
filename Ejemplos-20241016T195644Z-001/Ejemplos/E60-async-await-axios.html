@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async + Await con Axios</title>
+    <!-- Mi hoja de estilos externa -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Async + Await con Axios</h1>
+    <p>Este script utiliza <b>async/await</b> junto con <b>Axios</b> para realizar una solicitud HTTP asincrónica a una API y manejar posibles errores de manera adecuada.</p>
+    <h3>Explicación del código:</h3>
+    <p>1) Se define una función llamada <b>getNombre</b> utiliza la palabra clave <b>await</b> para realizar una solicitud GET a la URL de la API <a href="https://randomuser.me/api">https://randomuser.me/api</a> utilizando <b>Axios</b>. Axios es una biblioteca para realizar solicitudes HTTP en JavaScript.</p>
+    <p>2) La respuesta de la solicitud se almacena en la variable <b>datos</b>.</p>
+    <p>3) Se imprime el objeto completo de respuesta datos en la consola, lo que permite ver todos los datos devueltos por la API.</p>
+    <p>4) A continuación, se extrae y muestra el nombre completo (apellido y nombre) obtenido de los datos de la API. Esto se hace utilizando la notación de puntos para acceder a las propiedades del objeto <b>datos</b>datos. En este caso, se accede a <b>datos.data.results[0].name.last</b> para obtener el apellido y <b>datos.data.results[0].name.first</b> para obtener el nombre.</p>
+    <p>5) En el bloque <b>catch</b>, se manejan los errores que puedan ocurrir durante la solicitud o el procesamiento de datos. Si se produce un error, se imprime un mensaje de error en la consola junto con detalles sobre el error.</p>
+    <p>6) Finalmente, cada vez que se presiona el botón se llama a la función <b>getNombre()</b> para ejecutar la solicitud a la API y obtener los datos del nombre de manera asincrónica.</p>
+
+    <h3>Presiona el botón para ejecutar la prueba:</h3>
+    
+    <div class="container">
+        <button onclick="getNombre()">Leer datos con la API</button>
+    </div>
+
+    <div id="contenido" >
+        <!-- Aquí insertaremos contenido que recuperamos
+        mediante la API -->
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./js/E60-async-await-axios.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async + Await con Axios</title>
+    <!-- Mi hoja de estilos externa -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Async + Await con Axios (completo)</h1>
+    <p>Este script utiliza <b>async/await</b> junto con <b>Axios</b> para realizar una solicitud HTTP asincrónica a una API y manejar posibles errores de manera adecuada.</p>
+    <p>Utiliza el esquema de "tarjetas" visto en los ejemplos anteriores para mostrar los datos recuperados mediante la API.</p>
+    <hr>
+
+    <div class="container">
+        <button onclick="getNombre()">Leer datos con la API</button>
+    </div>
+
+    <div id="contenido" class="contenido" >
+        <!-- Aquí insertaremos contenido que recuperamos
+        mediante la API -->
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./js/E61-async-await-axios.js"></script>
+</body>
+
+</html>

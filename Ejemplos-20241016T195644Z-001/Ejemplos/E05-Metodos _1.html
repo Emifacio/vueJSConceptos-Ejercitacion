@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - v-html</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Vue - Directiva v-html</h1>
+    <p><b>v-html</b> permite insertar contenido HTML dinámico en un elemento del DOM.</p>
+    <p>Es importante tener en cuenta que cuando utilizas <b>v-html</b>, debes tener cuidado con la seguridad, especialmente si el contenido HTML proviene de fuentes externas o usuarios no confiables, ya que puede presentar riesgos de seguridad como ataques XSS (Cross-Site Scripting). Es recomendable validar y escapar adecuadamente el contenido HTML para mitigar estos riesgos.</p>
+
+    <div id="app">
+        <h3>Lista de Bebidas</h3>
+        <div>
+            <button @click="agregarElemento('Café')">Café</button>
+            <button @click="agregarElemento('Té')">Té</button>
+            <button @click="agregarElemento('Mate')">Mate</button>
+            <button @click="agregarElemento('Agua')">Agua</button>
+            <button @click="agregarElemento('Jugo')">Jugo</button>
+        </div>
+        <ul type="none">
+            <li v-for="(elemento, index) in elementos" :key="index">
+                <button @click="eliminarElemento(index)" class="menor">Eliminar</button>
+                {{ elemento.descripcion }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Referencia al CDN de Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29"></script>
+
+    <!-- Nuestro script -->
+    <script>
+        const { createApp, ref } = Vue;
+
+        const app = createApp({
+            data() {
+                return {
+                    elementos: []
+                };
+            },
+            methods: {
+                agregarElemento(descripcion) {
+                    this.elementos.push({ descripcion });
+                },
+                eliminarElemento(index) {
+                    this.elementos.splice(index, 1);
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE: Atributos con v-vind</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Vue - Atributos con v-bind</h1>
+    <hr>
+    <script>
+        // Enlaza dinámicamente uno o más atributos,
+        // o una propiedad de un componente a una
+        // expresión.
+    </script>
+
+    <div id="app">
+        <p v-bind:title="mensaje">
+            <!-- Aqui hemos hecho el bind al atributo que se modifica-->
+            Este párrafo tiene un título (title) enlazado DINÁMICAMENTE.<br> 
+            (Posa el mouse sobre él unos segundos)
+        </p>
+    </div>
+
+
+    <!-- Referencia al CDN de Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29"></script>
+
+    <!-- Y aqui colocamos nuestro script ------------------------------>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    mensaje: 'Página cargada el ' + new Date().toLocaleString(),
+                }
+            }
+        })
+        app.mount('#app');
+    </script>
+
+</body>
+
+</html>

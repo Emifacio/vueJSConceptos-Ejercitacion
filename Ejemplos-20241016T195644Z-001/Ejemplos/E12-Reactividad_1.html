@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos Vue.js</title>
+
+    <!-- Mi hoja de estilos externa -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Reactividad con Vue (I)</h1>
+    <p>Creamos una app con Vue, y utilizamos <mark>setInterval()</mark> para configurar un contador.</p>
+
+    <h3>Observa como cambiar el valor del contador:</h3>
+    <!-- Este es el contenedor donde funcionar Vue.js -->
+    <div id="app">
+        <p></b>Contador...: <b> {{contador}} </p>
+    </div>
+
+    <!-- Referencia al CDN de Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29"></script>
+
+    <!-- Y aqui colocamos nuestro script ------------------------------>
+    <script>
+        //Creamos nuestra aplicacion.
+        const miAplicacion = Vue.createApp({
+            //DATOS de la aplicacion
+            data() {
+                return { contador: 0 }
+            },
+            // El evento  mounted() se dispara al montar la aplicación
+            mounted() {
+                //Suma 1 en contador cada 1000ms (1 segundo)
+                setInterval(() => { this.contador++ }, 1000)
+            }
+        });
+
+        miAplicacion.mount("#app")
+
+    </script>
+</body>
+
+</html>

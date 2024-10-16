@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Metodos</title>
+
+    <!-- Mi hoja de estilos externa -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Vue - Metodos</h1>
+    <hr>
+    
+    <div id="app">
+        <h3>Lista de Tareas</h3>
+        <!--  Puedes reemplazar el input y el botón por la linea siguiente:
+        <input v-model="nuevaTarea" @keyup.enter="agregarTarea" placeholder="Agregar una tarea">
+        -->
+        <input v-model="nuevaTarea" placeholder="Agregar una tarea">
+        <button @click="agregarTarea(index)">Agregar</button>
+
+        <ul type="none">
+            <li v-for="(tarea, index) in tareas" :key="index">                
+                <button @click="eliminarTarea(index)" class="menor">Eliminar</button>
+                {{ tarea }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Referencia al CDN de Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    nuevaTarea: '',
+                    tareas: []
+                };
+            },
+            methods: {
+                agregarTarea() {
+                    if (this.nuevaTarea.trim() !== '') {
+                        this.tareas.push(this.nuevaTarea.trim());
+                        this.nuevaTarea = '';
+                    }
+                },
+                eliminarTarea(index) {
+                    this.tareas.splice(index, 1);
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
